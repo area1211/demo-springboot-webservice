@@ -2,7 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.domain.keword.Keyword;
 import com.example.demo.domain.keword.KeywordRepository;
-import com.example.demo.domain.KeywordSaveRequestDto;
+import com.example.demo.dto.keyword.KeywordSaveRequestDto;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;

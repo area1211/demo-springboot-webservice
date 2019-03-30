@@ -1,7 +1,7 @@
 package com.example.demo.web;
 
 import com.example.demo.domain.keword.KeywordRepository;
-import com.example.demo.domain.KeywordSaveRequestDto;
+import com.example.demo.dto.keyword.KeywordSaveRequestDto;
 import com.example.demo.domain.PostsRepository;
 import com.example.demo.domain.PostsSaveRequestDto;
 import com.example.demo.service.KeywordService;

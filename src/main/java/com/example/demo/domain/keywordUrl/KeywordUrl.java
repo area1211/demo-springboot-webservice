@@ -1,6 +1,7 @@
-package com.example.demo.domain;
+package com.example.demo.domain.keywordUrl;
 
 
+import com.example.demo.domain.BaseTimeEntity;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -14,7 +15,7 @@ import java.time.format.DateTimeFormatter;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @ToString
-public class KeywordUrl {
+public class KeywordUrl extends BaseTimeEntity {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
 
     @Id

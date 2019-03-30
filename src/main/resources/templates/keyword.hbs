@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>스프링부트 웹서비스</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--부트스트랩 css 추가-->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+</head>
+<body>
+<h1 class="text-center">{{keyword.name}}</h1>
+<h4 class="text-center">검색 결과 이미지가 주기적으로 추가되고 있습니다!</h4>
+<div class="text-center">최근 10개의 이미지까지 보여드릴게요.</div>
+
+<div class="col-md-12">
+    <!-- 목록 출력 영역 -->
+    <table class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+        <tr>
+            <th>검색 결과 이미지</th>
+            <th>만들어진 시간</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#each keywordUrl}}
+            <tr>
+                <td><img src="{{url}}" class="img-fluid" alt="Responsive image"></td>
+                <td>{{createdDate}}(UTC)</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+
+
+<!--부트스트랩 js, jquery 추가-->
+<script src="/js/lib/jquery.min.js"></script>
+<script src="/js/lib/bootstrap.min.js"></script>
+
+<!--custom js 추가-->
+<script src="/js/app/main.js"></script>
+</body>
+</html>

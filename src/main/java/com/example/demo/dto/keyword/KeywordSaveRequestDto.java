@@ -1,4 +1,4 @@
-package com.example.demo.domain;
+package com.example.demo.dto.keyword;
 
 import com.example.demo.domain.keword.Keyword;
 import lombok.Builder;
