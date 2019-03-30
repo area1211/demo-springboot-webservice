@@ -3,14 +3,26 @@ spring:
     active: local
 
 ---
+
+#spring:
+#  profiles: local
+#  datasource:
+#    hikari:
+#      jdbc-url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+#      username: sa
+#      password:
+#      driver-class-name: org.h2.Driver
+
+
+#  application.properties를 사용하셔도 무방합니다만, 굳이 yml로 변경한 이유는 properties에 비해 상대적으로 유연한 구조를 가졌기 때문입니다.
+#  yml은 상위 계층에 대한 표현, List 등을 완전하게 표현할수가 있습니다.
+#  최근의 많은 도구들이 yml 설정을 지원하기 때문에 이참에 시작해보시는 것을 추천드립니다.
+
 spring:
-  profiles: local
-  datasource:
-    hikari:
-      jdbc-url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-      username: sa
-      password:
-      driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+
 ---
 spring:
   profiles: mysql
@@ -20,3 +32,5 @@ spring:
       username: root
       password: Wjddlsgh123!
       driver-class-name: com.mysql.cj.jdbc.Driver
+
+
