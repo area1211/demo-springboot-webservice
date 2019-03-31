@@ -14,10 +14,10 @@ cache:
 
 script: "./gradlew clean build"
 
-before_deploy:
-  - zip -r demo-spring-webservice *
-  - mkdir -p deploy
-  - mv demo-spring-webservice.zip deploy/demo-spring-webservice.zip
+#before_deploy:
+#  - zip -r demo-spring-webservice *
+#  - mkdir -p deploy
+#  - mv demo-spring-webservice.zip deploy/demo-spring-webservice.zip
 
 deploy:
   - provider: s3
@@ -27,7 +27,7 @@ deploy:
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
-    local_dir: deploy # before_deploy에서 생성한 디렉토리
+#    local_dir: deploy # before_deploy에서 생성한 디렉토리
     wait-until-deployed: true
     on:
       repo: area1211/demo-spring-webservice #Github 주소
