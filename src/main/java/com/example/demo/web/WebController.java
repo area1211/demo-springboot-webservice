@@ -24,7 +24,7 @@ public class WebController {
     @GetMapping("/keyword/{keywordId}")
     public String keywordMain(Model model, @PathVariable Long keywordId) {
         model.addAttribute("keyword", keywordService.findKeyword(keywordId));
-        model.addAttribute("keywordUrl", keywordUrlService.findKeywordUrlDesc(keywordId));
+        model.addAttribute("keywordUrl", keywordUrlService.findTop10ByKeywordIdOrderByCreatedDateDesc(keywordId));
 
         return "keyword";
     }

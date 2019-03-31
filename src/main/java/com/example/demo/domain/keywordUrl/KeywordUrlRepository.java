@@ -21,7 +21,8 @@ public interface KeywordUrlRepository extends JpaRepository<KeywordUrl, Long> {
             "ORDER BY ku.id DESC")
     Stream<KeywordUrl> findAllDesc();
 
-    @Query("SELECT ku FROM KeywordUrl ku WHERE ku.keywordId = :keywordId order by ku.createdDate desc ")
+    @Query("SELECT ku FROM KeywordUrl ku WHERE ku.keywordId = :keywordId order by ku.createdDate desc")
     Stream<KeywordUrl> findKeywordUrlByKeywordId(@Param("keywordId") Long keywordId);
 
+    Stream<KeywordUrl> findTop10ByKeywordIdOrderByCreatedDateDesc(Long keywordId);
 }
