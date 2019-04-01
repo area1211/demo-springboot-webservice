@@ -23,6 +23,6 @@ public class WebRestControllerTest {
         String profile = this.restTemplate.getForObject("/profile", String.class);
 
         //then
-        assertThat(profile).isEqualTo("mysqlRds");
+        assertThat(profile).isEqualTo("local");
     }
 }
