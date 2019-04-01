@@ -6,7 +6,7 @@ plugins {
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.example'
-version = '0.0.4'
+version = '0.0.5'
 sourceCompatibility = '11'
 
 configurations {
