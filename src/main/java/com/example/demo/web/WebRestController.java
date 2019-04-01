@@ -6,10 +6,13 @@ import com.example.demo.domain.PostsRepository;
 import com.example.demo.domain.PostsSaveRequestDto;
 import com.example.demo.service.KeywordService;
 import lombok.AllArgsConstructor;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Arrays;
 
 @RestController // @ResponseBody를 모든 메소드에서 적용해줍니다.
 @AllArgsConstructor
@@ -19,6 +22,16 @@ public class WebRestController {
     private KeywordRepository keywordRepository;
 
     private KeywordService keywordService;
+
+    private Environment env;
+
+
+    @GetMapping("/profile")
+    public String getProfile () {
+        return Arrays.stream(env.getActiveProfiles())
+                .findFirst()
+                .orElse("");
+    }
 
     @GetMapping("/hello")
     public String hello() {
