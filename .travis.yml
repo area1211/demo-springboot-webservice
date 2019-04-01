@@ -15,9 +15,9 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r demo-spring-webservice *
+  - zip -r demo-springboot-webservice *
   - mkdir -p deploy
-  - mv demo-spring-webservice.zip deploy/demo-spring-webservice.zip
+  - mv demo-springboot-webservice.zip deploy/demo-springboot-webservice.zip
 
 deploy:
   - provider: s3
@@ -30,21 +30,21 @@ deploy:
     local_dir: deploy # before_deploy에서 생성한 디렉토리
     wait-until-deployed: true
     on:
-      repo: area1211/demo-spring-webservice #Github 주소
+      repo: area1211/demo-springboot-webservice #Github 주소
       branch: master
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
     secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
     bucket: demo-springboot-webservice-deploy # 6-3-3에서 생성한 S3 버킷
-    key: demo-spring-webservice.zip # 빌드 파일을 압축해서 전달
+    key: demo-springboot-webservice.zip # 빌드 파일을 압축해서 전달
     bundle_type: zip
     application: springboot-webservice # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
     deployment_group: springboot-webservice-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
     region: ap-northeast-2
     wait-until-deployed: true
     on:
-      repo: area1211/demo-spring-webservice #Github 주소
+      repo: area1211/demo-springboot-webservice #Github 주소
       branch: master
 
 
