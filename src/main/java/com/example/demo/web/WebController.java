@@ -18,6 +18,7 @@ public class WebController {
     @GetMapping("/")
     public String main(Model model) {
         model.addAttribute("keyword", keywordService.findAllDesc());
+        model.addAttribute("keywordLength", keywordService.findAllDesc().size());
         return "main";
     }
 

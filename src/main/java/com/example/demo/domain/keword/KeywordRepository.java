@@ -23,4 +23,6 @@ public interface KeywordRepository extends JpaRepository<Keyword, Long> {
 
     @Query("SELECT k FROM Keyword k WHERE k.id = :id")
     Keyword findKeywordById(@Param("id") Long keywordId);
+    @Query("SELECT k FROM Keyword k WHERE k.name = :name")
+    Keyword findKeywordByName(@Param("name") String name);
 }

@@ -9,10 +9,10 @@
 </head>
 <body>
 <br/><br/>
-<h1 class="text-center">검색 키워드를 등록하시면 <font class="p-3 mb-2 bg-success text-white">NAVER</font> 검색결과를 이미지로 보여드려요.(Ver.6)</h1>
+<h2 class="text-center">검색어를 등록하시면 <p class="p-3 mb-2 bg-success text-white">NAVER</p> 주기적으로 검색결과를 이미지로 보여드려요.(Ver.1)</h2>
 
 <div class="col-md-12">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#saveKeywordModal">검색 키워드 등록</button>
+    <button type="button" class="btn btn-primary mx-auto d-block" data-toggle="modal" data-target="#saveKeywordModal">검색 키워드 등록</button>
     <br/>
     <br/>
     <!-- 목록 출력 영역 -->
@@ -28,12 +28,13 @@
         {{#each keyword}}
             <tr>
                 <td><a href="/keyword/{{id}}">{{name}}</a></td>
-                <td>{{createdDate}}</td>
-                <td>{{modifiedDate}}</td>
+                <td>{{createdDate}} (UTC)</td>
+                <td>{{modifiedDate}} (UTC)</td>
             </tr>
         {{/each}}
         </tbody>
     </table>
+    <input type="hidden" id="keyword-length" value="{{keywordLength}}">
 </div>
 
 <div class="modal fade" id="saveKeywordModal" tabindex="-1" role="dialog" aria-labelledby="saveKeywordLabel"
