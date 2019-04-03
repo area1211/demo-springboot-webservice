@@ -23,7 +23,7 @@ public class KeywordService {
     @Transactional
     public Long save(KeywordSaveRequestDto dto){
 
-        if (findAllDesc().size() >= 10) return null;
+        if (findAllDesc().size() >= 5) return null;
 
         try {
             return keywordRepository.save(dto.toEntity()).getId();

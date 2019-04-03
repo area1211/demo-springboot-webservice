@@ -9,18 +9,20 @@ var main = {
         var data = {
             // title: $('#title').val(),
             // author: $('#author').val(),
-            name: $('#name').val()
+            name: $('#name').val().trim()
         };
 
-        var keywordLength = $('#keyword-length').val();
-        var keywordLimit = 10;
-        if (keywordLength == keywordLimit) {
-            alert("키워드는 최대 " + keywordLimit + "개 까지만 등록할 수 있습니다.");
+        if (data.name.length < 2) {
+            // alert("2글자 이상의 검색어를 입력해주세요!");
+            swal ( "키워드 등록에 실패했습니다." ,  "2글자 이상의 검색어를 입력해주세요!" ,  "error" )
             return;
         }
 
-        if (data.name.length < 2) {
-            alert("2글자 이상의 검색어를 입력해주세요!");
+        var keywordLength = $('#keyword-length').val();
+        var keywordLimit = 5;
+        if (keywordLength == keywordLimit) {
+            // alert("키워드는 최대 " + keywordLimit + "개 까지만 등록할 수 있습니다.");
+            swal ( "키워드 등록에 실패했습니다." ,  "키워드는 최대 " + keywordLimit + "개 까지만 등록할 수 있습니다." ,  "error" )
             return;
         }
 
@@ -31,11 +33,15 @@ var main = {
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
-            alert('키워드가 등록되었습니다!');
-            location.reload();
+            // alert('키워드가 등록되었습니다!');
+            swal('키워드가 등록되었습니다!', "최신 뉴스 검색 결과를 주기적으로 보여드릴게요!", "success")
+                .then((value) => {
+                    location.reload();
+                })
         }).fail(function (error) {
             // alert(error);
-            alert("키워드 등록에 실패했습니다.");
+            // alert("키워드 등록에 실패했습니다.");
+            swal ( "키워드 등록에 실패했습니다." ,  "잠시후 다시 시도해주세요." ,  "error" )
         });
     }
 };
