@@ -9,7 +9,7 @@
 </head>
 <body>
 <br/><br/>
-<h2 class="text-center">검색어를 등록하시면 <p class="p-3 mb-2 bg-success text-white">NAVER</p> 주기적으로 검색결과를 이미지로 보여드려요.(Ver.1)</h2>
+<h2 class="text-center">검색어를 등록하시면 <p class="p-3 mb-2 bg-success text-white">NAVER 뉴스</p>검색결과를 주기적으로 저장하여 이미지로 보여드려요.(Ver.1)</h2>
 
 <div class="col-md-12">
     <button type="button" class="btn btn-primary mx-auto d-block" data-toggle="modal" data-target="#saveKeywordModal">검색 키워드 등록</button>
@@ -28,8 +28,8 @@
         {{#each keyword}}
             <tr>
                 <td><a href="/keyword/{{id}}">{{name}}</a></td>
-                <td>{{createdDate}} (UTC)</td>
-                <td>{{modifiedDate}} (UTC)</td>
+                <td>{{createdDate}}</td>
+                <td>{{modifiedDate}}</td>
             </tr>
         {{/each}}
         </tbody>
