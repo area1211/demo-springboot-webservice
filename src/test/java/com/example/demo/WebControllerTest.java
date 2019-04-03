@@ -23,6 +23,6 @@ public class WebControllerTest {
         String body = this.restTemplate.getForObject("/", String.class);
 
         //then
-        assertThat(body).contains("검색결과를 이미지로 보여드려요.");
+        assertThat(body).contains("검색어를 등록하시면");
     }
 }
