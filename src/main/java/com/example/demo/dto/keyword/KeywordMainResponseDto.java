@@ -13,12 +13,15 @@ public class KeywordMainResponseDto {
     private String name;
     private String createdDate;
     private String modifiedDate;
+    private String imgCreatedDate;
+
 
     public KeywordMainResponseDto(Keyword entity) {
         id = entity.getId();
         name = entity.getName();
         createdDate = toStringDateTime(entity.getCreatedDate());
         modifiedDate = toStringDateTime(entity.getModifiedDate());
+        imgCreatedDate = toStringDateTime(entity.getImgCreatedDate());
     }
 
     /**

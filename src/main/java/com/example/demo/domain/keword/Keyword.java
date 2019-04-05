@@ -21,6 +21,7 @@ public class Keyword extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private LocalDateTime imgCreatedDate;
 
     @Builder
     public Keyword(String name) {

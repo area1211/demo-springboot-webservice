@@ -15,6 +15,7 @@ public class KeywordUrlMainResponseDto {
     private String url;
     private String createdDate;
     private String modifiedDate;
+    private String imgCreatedDate;
 
     public KeywordUrlMainResponseDto(KeywordUrl entity) {
         id = entity.getId();

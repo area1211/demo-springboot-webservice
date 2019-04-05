@@ -29,7 +29,11 @@
             <tr>
                 <td><a href="/keyword/{{id}}">{{name}}</a></td>
                 <td>{{createdDate}}</td>
-                <td>{{modifiedDate}}</td>
+                {{#if imgCreatedDate}}
+                    <td>{{imgCreatedDate}}</td>
+                {{else}}
+                    <td>아직 이미지가 생성되지 않았습니다. 잠시 기다려 주세요!</td>
+                {{/if}}
             </tr>
         {{/each}}
         </tbody>
@@ -71,5 +75,6 @@
 
 <!--custom js 추가-->
 <script src="/js/app/main.js"></script>
+
 </body>
 </html>
