@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -21,7 +22,7 @@ public class KeywordService {
     private KeywordRepository keywordRepository;
 
     @Transactional
-    public Long save(KeywordSaveRequestDto dto){
+    public Long save(KeywordSaveRequestDto dto) {
 
         if (findAllDesc().size() >= 5) return null;
 
@@ -34,16 +35,23 @@ public class KeywordService {
         return null;
     }
 
-    @Transactional(readOnly = true) // 트랜잭션 범위는 유지하되, 조회 기능만 남겨두어 조회 속도가 개선되기 때문에 특별히 등록/수정/삭제 기능이 없는 메소드에선 사용하시는걸 추천드립니다.
+    @Transactional(readOnly = true)
+    // 트랜잭션 범위는 유지하되, 조회 기능만 남겨두어 조회 속도가 개선되기 때문에 특별히 등록/수정/삭제 기능이 없는 메소드에선 사용하시는걸 추천드립니다.
     public List<KeywordMainResponseDto> findAllDesc() {
         return keywordRepository.findAllDesc()
                 .map(KeywordMainResponseDto::new)
                 .collect(Collectors.toList());
     }
 
-    @Transactional(readOnly = true) // 트랜잭션 범위는 유지하되, 조회 기능만 남겨두어 조회 속도가 개선되기 때문에 특별히 등록/수정/삭제 기능이 없는 메소드에선 사용하시는걸 추천드립니다.
-    public KeywordMainResponseDto findKeyword(Long id) {
-        Keyword keyword = keywordRepository.findKeywordById(id);
-        return new KeywordMainResponseDto(keyword);
+    @Transactional(readOnly = true)
+    // 트랜잭션 범위는 유지하되, 조회 기능만 남겨두어 조회 속도가 개선되기 때문에 특별히 등록/수정/삭제 기능이 없는 메소드에선 사용하시는걸 추천드립니다.
+    public Optional<KeywordMainResponseDto> findKeyword(Long id) {
+//        Keyword keyword = keywordRepository.findKeywordById(id);
+        Optional<Keyword> byId = keywordRepository.findById(id);
+
+        if (byId.isPresent())
+            return Optional.of(new KeywordMainResponseDto(byId.get()));
+        else
+            return Optional.empty();
     }
 }

@@ -16,13 +16,12 @@ JPA에선 Repository라고 부르며 인터페이스로 생성합니다.
 
  */
 public interface KeywordRepository extends JpaRepository<Keyword, Long> {
-    @Query("SELECT k " +
-            "FROM Keyword k " +
-            "ORDER BY k.id DESC")
+    @Query("SELECT k FROM Keyword k ORDER BY k.id DESC")
     Stream<Keyword> findAllDesc();
 
     @Query("SELECT k FROM Keyword k WHERE k.id = :id")
     Keyword findKeywordById(@Param("id") Long keywordId);
+
     @Query("SELECT k FROM Keyword k WHERE k.name = :name")
     Keyword findKeywordByName(@Param("name") String name);
 }
