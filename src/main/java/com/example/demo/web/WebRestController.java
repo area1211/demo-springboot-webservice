@@ -19,7 +19,6 @@ import java.util.Arrays;
 public class WebRestController {
 
     private PostsRepository postsRepository;
-    private KeywordRepository keywordRepository;
 
     private KeywordService keywordService;
 
